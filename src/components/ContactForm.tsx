@@ -1,3 +1,4 @@
+import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import AddressList from "./AddressList";
 import { getCoordinatesFromState } from "../utils/getCoordinates";
@@ -91,7 +92,7 @@ const ContactForm = ({
           <div>
             <button
               type="button"
-              className="bg-gray-800 text-white p-4 rounded-lg "
+              className="bg-gray-800 text-white p-4 rounded-lg w-full md:w-auto"
               onClick={() => setCoordinates(values.addresses, setFieldValue)}
             >
               Get Coordinates
@@ -129,7 +130,7 @@ const ContactForm = ({
           </div>
           <button
             type="submit"
-            className="text-white bg-gray-800 p-4 w-40 rounded-lg float-end"
+            className="text-white bg-gray-800 p-4 w-full md:w-40 rounded-lg float-right"
           >
             Submit
           </button>

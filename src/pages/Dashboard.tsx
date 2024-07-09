@@ -61,36 +61,38 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 gap-10">
         <div className="md:col-span-2">
           <h2 className="text-xl mb-2">Table View</h2>
-          <table {...getTableProps()} className="min-w-full bg-white border">
-            <thead>
-              {headerGroups.map((headerGroup) => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
-                  {headerGroup.headers.map((column) => (
-                    <th
-                      {...column.getHeaderProps()}
-                      className="py-2 px-4 border"
-                    >
-                      {column.render("Header")}
-                    </th>
-                  ))}
-                </tr>
-              ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-              {rows.map((row) => {
-                prepareRow(row);
-                return (
-                  <tr {...row.getRowProps()}>
-                    {row.cells.map((cell) => (
-                      <td {...cell.getCellProps()} className="py-2 px-4 border">
-                        {cell.render("Cell")}
-                      </td>
+          <div className="overflow-x-auto md:overflow-visible">
+            <table {...getTableProps()} className="min-w-full bg-white border">
+              <thead>
+                {headerGroups.map((headerGroup) => (
+                  <tr {...headerGroup.getHeaderGroupProps()}>
+                    {headerGroup.headers.map((column) => (
+                      <th
+                        {...column.getHeaderProps()}
+                        className="py-2 px-4 border"
+                      >
+                        {column.render("Header")}
+                      </th>
                     ))}
                   </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                ))}
+              </thead>
+              <tbody {...getTableBodyProps()}>
+                {rows.map((row) => {
+                  prepareRow(row);
+                  return (
+                    <tr {...row.getRowProps()}>
+                      {row.cells.map((cell) => (
+                        <td {...cell.getCellProps()} className="py-2 px-4 border">
+                          {cell.render("Cell")}
+                        </td>
+                      ))}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
         <div className="md:col-span-1">
           <h2 className="text-xl mb-2">Map View</h2>
