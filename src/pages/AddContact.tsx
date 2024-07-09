@@ -22,7 +22,7 @@ const AddContact = () => {
 
   return (
     <>
-      <div className="w-60 mx-auto mb-14">
+      <div className="w-60 mx-auto mb-10">
         <h1 className="mb-4 text-4xl text-gray-800 font-bold">Add Contact</h1>
       </div>
       <div>
