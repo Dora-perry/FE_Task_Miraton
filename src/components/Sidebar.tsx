@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import close from "../assets/Closeicon.png";
 import hamburger from "../assets/hamburger-menu.png";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -34,7 +35,9 @@ const Sidebar = () => {
           <li>
             <Link
               to="/"
-              className="block p-4 hover:bg-gray-700"
+              className={`block p-4 hover:bg-gray-700 ${
+                location.pathname === "/" ? "bg-gray-700" : ""
+              }`}
               onClick={() => setIsOpen(false)}
             >
               Add Contact
@@ -43,7 +46,11 @@ const Sidebar = () => {
           <li>
             <Link
               to="/dashboard"
-              className="block p-4 hover:bg-gray-700"
+              className={`block p-4 hover:bg-gray-700 ${
+                location.pathname === "/dashboard"
+                  ? "bg-gray-700"
+                  : ""
+              }`}
               onClick={() => setIsOpen(false)}
             >
               Dashboard
