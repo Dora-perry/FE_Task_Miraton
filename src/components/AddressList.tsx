@@ -12,7 +12,7 @@ const AddressList: React.FC<AddressListProps> = ({ values }) => {
     <div>
       <label className="block">Addresses</label>
       <FieldArray name="addresses">
-        {({ insert, remove, push }) => (
+        {({ remove, push }) => (
           <>
             {values.addresses.length > 0 &&
               values.addresses.map((address, index) => (
@@ -24,7 +24,7 @@ const AddressList: React.FC<AddressListProps> = ({ values }) => {
                   />
                   <ErrorMessage name={`addresses.${index}`} component="div" />
                   {values.addresses.length > 1 && (
-                    <button type="button" onClick={() => remove(index)}>Remove</button>
+                    <button type="button" onClick={() => remove(index)} className='text-red-600'>Remove</button>
                   )}
                 </div>
               ))}

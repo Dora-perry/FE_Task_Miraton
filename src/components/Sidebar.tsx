@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import close from "../assets/Closeicon.png";
+import hamburger from "../assets/hamburger-menu.png";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,9 +13,16 @@ const Sidebar = () => {
   return (
     <div>
       <div className="md:hidden">
-        <button onClick={toggleSidebar} className="bg-gray-800 text-white">
-          Menu
-        </button>
+        <div
+          onClick={toggleSidebar}
+          className="text-white w-8 h-8 object-contain"
+        >
+          {isOpen ? (
+            <img src={close} alt="Close Menu" className="w-8 h-8" />
+          ) : (
+            <img src={hamburger} alt="Open Menu" className="w-8 h-8" />
+          )}
+        </div>
       </div>
       <div
         className={`fixed md:relative z-50 h-screen bg-gray-800 text-white transition-transform transform ${
@@ -24,7 +33,7 @@ const Sidebar = () => {
         <ul>
           <li>
             <Link
-              to="/add-contact"
+              to="/"
               className="block p-4 hover:bg-gray-700"
               onClick={() => setIsOpen(false)}
             >
@@ -33,7 +42,7 @@ const Sidebar = () => {
           </li>
           <li>
             <Link
-              to="/"
+              to="/dashboard"
               className="block p-4 hover:bg-gray-700"
               onClick={() => setIsOpen(false)}
             >

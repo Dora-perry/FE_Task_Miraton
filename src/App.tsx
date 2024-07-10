@@ -10,8 +10,8 @@ function App() {
         <Sidebar />
         <div className="flex-grow p-6">
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/add-contact" element={<AddContact />} />
+            <Route path="/" element={<AddContact />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
       </div>

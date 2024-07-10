@@ -1,4 +1,3 @@
-import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import AddressList from "./AddressList";
 import { getCoordinatesFromState } from "../utils/getCoordinates";
@@ -39,6 +38,7 @@ const ContactForm = ({
       validationSchema={contactSchema}
       onSubmit={(values, actions) => {
         onSubmit(values);
+        actions.resetForm();
         actions.setSubmitting(false);
       }}
     >
@@ -130,7 +130,7 @@ const ContactForm = ({
           </div>
           <button
             type="submit"
-            className="text-white bg-gray-800 p-4 w-full md:w-40 rounded-lg float-right"
+            className="text-white bg-gray-800 p-4 w-full md:w-40 rounded-lg md:float-right"
           >
             Submit
           </button>
